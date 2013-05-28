@@ -1,0 +1,19 @@
+include _settings
+#background
+#container
+  header
+    h1 #{company_name}
+    h2 #{company_descriptor}
+  
+  mixin nav(links)
+  
+  #about #{about}
+  .contact
+    h3 Contact us:
+    .email
+      .label Email:
+      a.primary_email(href="#{email}") #{email}
+    .phone_1
+      .label Phone:
+      mixin phone_number(phone1)
+      mixin phone_number(phone2)

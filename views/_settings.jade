@@ -1,0 +1,46 @@
+mixin phone_number(number)
+  -var number = [number.substr(0,3), number.substr(3,3), number.substr(6,4)]
+  -var divisor = "-"
+  .phone_number
+    span.area_code #{"(" + number[0] + ") "}
+    span.number #{number[1]}
+    span.divisor #{divisor}
+    span.number #{number[2]}
+
+mixin link(item)
+  - var c = (item.cls) ? item.cls : " "
+  a(href="#{item.href}", class="#{c}") #{item.label}
+
+mixin nav(items, cls)
+  nav
+    ul(class="#{cls}")
+      - each item in items
+        li
+          mixin link(item)
+
+
+mixin design
+  .design
+    .name
+      span Design by 
+      span.designer Erica von Buelow
+    .design-contact
+      span Contact at 
+      a(href="mailto:evonbuelow@gmail.com") evonbuelow@gmail.com
+
+-var email = "socalpropertyservices@outlook.com"
+-var phone1 = "7143647131"
+-var phone2 = "8052178644"
+
+-var company_name = "So Cal Property Services"
+-var company_descriptor = "Property Preservation - Initial Secures"
+
+-var links = [{label: "Home", href: "", cls: "selected"}, {label: "Company", href: "/company"}, {label: "Services", href: "/services"}, {label: "Contact", href: "/contact"}]
+-var navClass = "navLinks center"
+-var footerClass = "footerLinks"
+
+-var about = " So Cal Property Services does Property Preservation and Initial Secures in Los Angeles, Orange, Ventura, San Bernadino, and Riverside Counties."
+
+-var services = "Services description"
+
+

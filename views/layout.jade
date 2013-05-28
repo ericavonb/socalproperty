@@ -1,0 +1,22 @@
+!!!
+html
+  head
+    meta(charset='utf8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge, chrome=1')
+    meta(name='description', content='description of your site')
+    meta(name='author', content= "So Cal Property Services")
+
+    title So Cal Property Services
+    
+    link(rel='stylesheet', href='/css/main.css') 
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Josefin+Sans|Spinnaker|Pontano+Sans|Belleza')
+
+  body
+    != yield
+
+  //- add other scripts through require.js, not here
+  script(data-main="js/main", src="js/require.js")
+
+  //- this must be included for live reload to work in developement
+  //- it will be automatically ignored when deployed
+  != livereload

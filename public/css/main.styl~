@@ -1,0 +1,39 @@
+@import '_settings'
+
+normalize()
+base()
+body
+  padding: 50px
+  background-color: #F3F7FF
+
+#container
+  display: block
+  padding: 0
+  margin: 0
+  clearfix()
+  width: 100%
+
+h1
+  fs(45px)
+
+
+header
+  h1
+  h2
+    text-align: center
+
+
+nav
+  position: relative
+  clearfix()
+  ul
+    reset-list()
+    clearfix()
+    li
+      float: left
+      margin: 20px
+      a
+        reset-link()
+      a:hover
+        padding-bottom: 5px
+        border-bottom: 3px solid white

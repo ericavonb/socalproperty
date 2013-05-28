@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="description" content="description of your site">
+    <meta name="author" content="So Cal Property Services">
+    <title>So Cal Property Services</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Josefin+Sans|Spinnaker|Pontano+Sans|Belleza">
+  </head>
+  <body>
+<div id="background"></div>
+<div id="container">
+  <header>
+    <h1>So Cal Property Services</h1>
+    <h2>Property Preservation - Initial Secures</h2>
+  </header>
+  <nav>
+    <ul class="navLinks center">
+      <li><a href="" class="selected">Home</a>
+      </li>
+      <li><a href="/company" class=" ">Company</a>
+      </li>
+      <li><a href="/services" class=" ">Services</a>
+      </li>
+      <li><a href="/contact" class=" ">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <div id="content">
+    <div id="about" class="page"> So Cal Property Services does Property Preservation and Initial Secures in Los Angeles, Orange, Ventura, San Bernadino, and Riverside Counties.</div>
+    <div class="services page">Services description</div>
+    <div class="contact page">
+      <h3>Contact us:</h3>
+      <div class="email">
+        <div class="label">Email:</div><a href="socalpropertyservices@outlook.com" class="primary_email">socalpropertyservices@outlook.com</a>
+      </div>
+      <div class="phone_1">
+        <div class="label">Phone:</div>
+        <div class="phone_number"><span class="area_code">(714) </span><span class="number">364</span><span class="divisor">-</span><span class="number">7131</span></div>
+        <div class="phone_number"><span class="area_code">(805) </span><span class="number">217</span><span class="divisor">-</span><span class="number">8644</span></div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <ul>
+      <li>So Cal Property Services</li>
+      <li><a href="" class="selected">Home</a>
+      </li>
+      <li><a href="/company" class=" ">Company</a>
+      </li>
+      <li><a href="/services" class=" ">Services</a>
+      </li>
+      <li><a href="/contact" class=" ">Contact</a>
+      </li>
+    </ul>
+    <div class="design">
+      <div class="name"><span>Design by </span><span class="designer">Erica von Buelow</span></div>
+      <div class="design-contact"><span>Contact at </span><a href="mailto:evonbuelow@gmail.com">evonbuelow@gmail.com</a></div>
+    </div>
+  </footer>
+</div>
+  </body>
+  <script data-main="js/main" src="js/require.js"></script><script>protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://'; address = protocol + window.location.host + window.location.pathname + '/ws'; socket = new WebSocket(address);
+socket.onmessage = function(msg) { msg.data == 'reload' && window.location.reload() }</script>
+</html>

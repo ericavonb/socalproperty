@@ -1,0 +1,53 @@
+@import '_settings'
+
+normalize()
+base()
+body
+  height: 100%
+  position: relative
+
+#background
+  background: linear-gradient(top, sky-blue, 100% white)
+  fixed: top 0 left 0
+  z-index: -10
+
+#container
+  padding: 50px
+  display: block
+  padding: 0
+  margin: 0
+  clearfix()
+  width: 100%
+  height: 5000px;
+
+h1
+  fs(45px)
+  font-family: josefin
+
+h2
+  font-weight: normal
+  fs(20px)
+
+header
+  margin: 80px
+  h1
+  h2
+    text-align: center
+
+
+nav
+  margin: 50px 0
+  border-bottom: 2px solid #CCC
+  clearfix()
+  ul
+    reset-list()
+    clearfix()
+    li
+      float: left
+      margin: 15px 50px
+      fs(22px)
+      a
+        padding: 
+        reset-link()
+      a:hover
+        border-bottom: 3px solid green
