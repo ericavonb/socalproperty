@@ -11,24 +11,26 @@ monospace = unquote("'Bitstream Vera Sans Mono', Consolas, Courier, monospace")
 verdana = Verdana, Geneva, sans-serif
 
 josefin = "Josefin Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
-belleza = "Belleza", "Helvetica Neue", Helvetica, Arial, sans-serif
 potano = "Pontano Sans", Helvetica, Arial, sans-serif
+open = 'Open Sans', Helvetica, Arial, sans-serif
 
 // default font stack
-font-stack = potano
-font-size = 15
+font-stack = open
+font-size = 16
 font-color = #444
 
 // colors
 red = #B44326
 orange = #F2A34F
-yellow = #FFFF73
+yellow = #ffcb00
 green = #6D806C
 light-blue = #52D7FE
 blue = #00a6fc
 purple = #664770
 white = #fff
 black = #272727
+light-grey = #f5f5f5
+grey = #e4e4e4
 
 sky-blue0 = #F3F7FF
 sky-blue = #E4EDFF
@@ -53,3 +55,20 @@ pie-path = '/pie.htc'
 column-width = 60px
 gutter-width = 20px
 columns = 12
+
+
+flipboard(fs)
+  color: white
+  text-shadow: #999 0px 2px 0px
+  font-family: helvetica
+  font-weight: bold
+  fs(fs)
+
+child-iter(prop, values, loop = true)
+ for i in 0...length(values)
+   if loop
+     c = "" + length(values) + "n + " + (i + 1)
+   else
+     c = (i + 1)
+   &:nth-child({c})
+     {prop}: values[i]

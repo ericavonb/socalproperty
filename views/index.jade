@@ -2,29 +2,29 @@ include _settings
 
 #background
 #container
-  header
-    h1 #{company_name}
-    h2 #{company_descriptor}
   
   mixin nav(links, navClass)
   
-  #content
-    #about.page #{about}
-    .services.page #{services}
-    .contact.page
-      h3 Contact us:
-      .email
-        .label Email:
-        a.primary_email(href="#{email}") #{email}
-      .phone_1
-        .label Phone:
-        mixin phone_number(phone1)
-        mixin phone_number(phone2)
+  #content.pages
+    .home.page#page_1
+      .pageContent
+        h1 #{company_name}
+        h2 #{company_descriptor}
+    .company.page.full#page_2 
+      .pageContent
+        include _company
+    .services.page.full#page_3
+      .pageContent
+        include _services
+    .contact.page.full#page_4
+      .pageContent
+        include _contact
 
   footer
-    ul
-      li #{company_name}
+    h1 #{company_name}
+    h2 #{company_descriptor}
+    ul.center
       - each item in links
-        li
+        li.footerItem
           mixin link(item)
     mixin design

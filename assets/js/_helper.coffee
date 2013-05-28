@@ -1,29 +1,74 @@
-elements = document.getElementsByClassName('center')
 
-width = (el, p, m) ->
-        style = window.getComputedStyle(el, null);
-        h = if style then parseInt(style.getPropertyValue("width")) else 0
+elements = document.getElementsByClassName('center')
+fel = document.getElementsByClassName('full')
+fw = document.getElementsByClassName('full_w')
+bck = document.getElementById('background')
+
+getStyle = (stl, prop) ->
+        if stl then parseInt(stl.getPropertyValue(prop)) else 0
+                
+borderW = (el, m, p) ->
+        stl = window.getComputedStyle(el, null)
+        w = 0
+        if (typeof p == 'undefined')
+                w += getStyle(stl, "padding-right")
+                w += getStyle(stl, "padding-left")
         if m
-                h += parseInt(style.getPropertyValue("margin-left"))
-                h += parseInt(style.getPropertyValue("margin-right"))
-        if p
-                h += parseInt(style.getPropertyValue("padding-left"))
-                h += parseInt(style.getPropertyValue("padding-right"))
-         h
+                w += getStyle(stl, "margin-right")
+                w += getStyle(stl, "margin-left")
+        w
+        
+borderH = (el, m) ->
+        stl = window.getComputedStyle(el, null)
+        h =  getStyle(stl, "padding-top")
+        h +=  getStyle(stl, "padding-bottom")
+        if m
+                h += getStyle(stl, "margin-top")
+                h += getStyle(stl, "margin-bottom")
+        h       
+        
+width = (el) ->
+        getStyle(window.getComputedStyle(el, null), "width")
+        
+height = (el) ->
+       getStyle(window.getComputedStyle(el, null), "height")
 
 insideWidth = (el) ->
         w = 0
         for child in el.children
-                w += width(child, true, true)
-         w
+                w += width(child) + borderW(child, true)
+        w
+
+full = (el, w, h) ->
+        el.style.height = (window.innerHeight - borderH(el, true)) + "px" if h
+        el.style.width = (window.innerWidth - borderW(el, true)) + "px" if w
+        true
+
+minfull = (el, w, h) ->
+        if h
+                newH = window.innerHeight - borderH(el)
+                if (height(el) < newH)
+                        el.style.height = newH + "px"
+        if w
+                newW = window.innerWidth - borderW(el)
+                if (width(el) < newW)
+                        el.style.width = newW + "px"
         
 center = (c) ->
-        c.style.paddingLeft = ((width(c, true) - insideWidth(c)) / 2) + "px"
+        c.style.paddingLeft = 0
+        c.style.paddingRight = 0
+        p = (width(c) - insideWidth(c)) / 2
+        c.style.paddingLeft = p + "px"
+        p
+        
+        
+main = ->
+        minfull(bck, true, true)
+        minfull(el, true, true) for el in fel
+        minfull(el, true, false) for el in fw
+        center el for el in elements
+        true
 
-full = (el) ->
-        el.style.height = window.innerHeight + "px"
-        el.style.width = window.outerWidth + "px"
+window.onresize = main
 
-center el for el in elements
-
-full document.getElementById('background')
+main()

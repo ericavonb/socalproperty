@@ -1,52 +1,161 @@
 @import '_settings'
 
+// linear-gradient(top, sky-blue, 100% rgba(255,255,255, 0))
+
 normalize()
 base()
 body
   height: 100%
+  width: 100%
   position: relative
 
 #background
-  background: linear-gradient(top, sky-blue, 100% white)
+  height: 100%
+  width: 100%
   fixed: top 0 left 0
   z-index: -10
+  background: white url('/img/lawn.jpg') no-repeat center top
+  background-size: 100% auto
 
 #container
-  padding: 50px
   display: block
   padding: 0
   margin: 0
   clearfix()
   width: 100%
-  height: 5000px;
 
 h1
-  fs(45px)
   font-family: josefin
+  text-align: center
+  color: black
 
 h2
   font-weight: normal
-  fs(20px)
+  text-align: center
+  color: #333
 
-header
-  margin: 80px
+h3
+  font-weight: normal
+  margin: 60px 0 20px 0
+  color: green
+  fs(30px)
+
+a
+  reset-link()
+  color: green
+  &:hover
+    color: green
+    text-shadow: 0 0 7px rgba(109,128,108,0.5)
+
+.home
   h1
+    fs(50px)
+    margin: 10px auto
+    padding: 20px 0
   h2
-    text-align: center
+    fs(22px)
+    padding: 10px
+    margin: 0 auto
 
 
-nav
-  margin: 50px 0
-  border-bottom: 2px solid #CCC
+page-bkg =  rgba(white, 0.4) white white white
+
+.page
+  display: block
+  position: relative
+  border-bottom: 1px solid grey
+  child-iter(background-color,  page-bkg)
+  .pageContent
+    padding: 100px
+    margin: 0 auto
+
+.page:nth-child(2)
+.page:nth-child(3)
+.page:nth-child(4)
+  .pageContent
+    width: 800px
+.home
+  h1
+    margin-top: 80px
+  .pageContent
+    height: 340px;
+    border-top: 120px solid white
+    border-bottom: 0px solid white
+    border-left: 0px solid white
+    border-right: 0px solid white
+    box-shadow: inset 0 0 5px #AAA
+
+.company .pageContent
   clearfix()
+  img
+    border: 2px solid grey
+    float: left
+    margin: 10px 0 60px 0
+    height: 300px
+  .locations
+    float: left
+    ul()
+    li
+      margin: 20px
+  h3
+    clear: left
+
+    
+footer
+  z-index: 100
+  width: 100%
+  padding: 50px 0 0 0
+  background: rgba(white, 0.4)
+  clearfix()
+  h1
+    fs(29px)
+    margin-bottom: 0
+  h2
+    fs(15px)
   ul
     reset-list()
+    margin: 30px
+    fs(16px)
     clearfix()
     li
       float: left
-      margin: 15px 50px
-      fs(22px)
+      padding: 10px 25px
+    a
+      color: black
+    a:hover
+      color: black
+      border-bottom: 2px solid yellow
+  .design
+    position: relative
+    text-align: center
+    float: right
+    margin: 10px 15px 10px 10px
+    padding: 10px
+    background: rgba(black, 0)
+    color: #222
+    a
+      link(#222, glow)
+    fs(14px)
+
+
+
+nav
+  absolute: top 0 left 0
+  z-index: 100
+  padding-top: 40px
+  ul
+    reset-list()
+    li
+      float: left
+      padding: 5px 50px 10px 50px
+      margin: 0
+      fs(18px)
+      background: rgba(white, 0.9)
       a
         reset-link()
       a:hover
-        border-bottom: 3px solid green
+        border-bottom: 3px solid #AAA
+        text-shadow: none
+      a.selected
+        border-bottom: 3px solid yellow
+
